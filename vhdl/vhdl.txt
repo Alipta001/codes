@@ -1,0 +1,369 @@
+2) Realization and analysis of halfadder circuit using vhdl
+code-
+library ieee;
+use ieee.std_logic_1164.all;
+entity halfadder is 
+port(
+    A,B: in std_logic;
+    Sum, Carry: out std_logic
+);
+end halfadder;
+architecture dataflow of halfadder is 
+begin
+Sum<= A xor B;
+carry<=A and B;
+end dataflow;
+
+3) Realization and analysis of fulladder circuit using vhdl
+code-
+library ieee;
+use ieee.std_logic_1164.all;
+entity fulladder is 
+port(
+    A,B, Cin: in std_logic;
+    Sum, Carry: out std_logic
+);
+end fulladder;
+architecture dataflow of fulladder is 
+begin
+Sum<= A xor (B xor Cin);
+carry<= (A and B) or (B and Cin) or (A and Cin);
+end dataflow;
+
+4) HalfSubtractor
+code-
+library ieee;
+use ieee.std_logic_1164.all;
+entity halfsubtractor is 
+port(
+    A,B: in std_logic;
+    Diff, Borrow: out std_logic
+);
+end halfsubtractor;
+architecture dataflow of halfsubtractor is 
+begin
+Diff<= A xor B;
+Borrow<= (not A) and B;
+end dataflow;
+
+Truth Table----
+A   B   Diff    Borrow
+--------------------
+0   0   0       0
+0   1   1       1
+1   0   1       0
+1   1   0       0
+
+
+5) Full subtractor
+code-
+library ieee;
+use ieee.std_logic_1164.all;
+entity halfsubtractor is 
+port(
+    A,B, Bin: in std_logic;
+    Diff, Bout: out std_logic
+);
+end halfsubtractor;
+architecture dataflow of halfsubtractor is 
+begin
+Diff<= A xor B xor Bin;
+Bout <= ((not A)and B) or ((not A)and Bin) or (B and Bin);
+end dataflow;
+
+Truth Table----
+A   B   Bin   Diff    Bout
+---------------------------
+0   0   0       0       0
+0   0   1       1       1
+0   1   0       1       1
+0   1   1       0       1
+1   0   0       1       0
+1   0   1       0       0
+1   1   0       0       0
+1   1   1       1       1
+
+
+6) 2:1 Mux
+code--
+library ieee;
+use ieee.std_logic_1164.all;
+entity 21Mux is
+port(
+    S,A,B: in std_logic;
+    Y: out std_logic;
+);
+end 21Mux;
+architecture dataflow of 21Mux is
+begin
+Y<=(A and not S) or (B and S);
+end dataflow;
+
+Truth Table--
+S   A   B   Y
+--------------
+0   0   0   0
+0   0   1   0
+0   1   0   1
+0   1   1   1
+1   0   0   0
+1   0   1   1
+1   1   0   0
+1   1   1   1
+
+
+7) 4:1 Mux
+code-
+library ieee;
+use ieee.std_logic_1164.all;
+entity 41Mux is
+port(
+    S1,S2,A,B,C,D: in std_logic;
+    Y: out std_logic;
+);
+end 41Mux;
+architecture dataflow of 41Mux is
+begin
+Y<=(not S1 and not S2 and A) or
+    (not S1 and S2 and B) or
+    (S1 and not S2 and C) or
+    (S1 and S2 and d);
+end dataflow;
+
+Truth Table-
+S1  S2  A   B   C   D   Y
+-------------------------
+0   0   0   x   x   x   0
+0   0   1   x   x   x   1
+0   1   x   0   x   x   0
+0   1   x   1   x   x   1
+1   0   x   x   0   x   0
+1   0   x   x   1   x   1
+1   1   x   x   x   0   0
+1   1   x   x   x   1   1
+
+
+8) 1:4 Demux
+code--
+library ieee;
+use ieee.std_logic_1164.all;
+entity 14Demux is
+port(
+    I,S0,S1: in std_logic;
+    A,B,C,D: out std_logic;
+);
+end 14Demux;
+architecture dataflow of 14Demux is
+begin
+A<= not S1 and not S0 and I;
+B<= not S1 and S0 and I;
+C<= S1 and not S0 and I;
+D<= S1 and S0 and I;
+end dataflow;
+
+Truth Table-
+S1  S0  I   A   B   C   D 
+--------------------------
+0   0   0   0   0   0   0
+0   0   1   1   0   0   0
+0   1   0   0   0   0   0
+0   1   1   0   1   0   0
+1   0   0   0   0   0   0
+1   0   1   0   0   1   0
+1   1   0   0   0   0   0
+1   1   1   0   0   0   1
+
+
+9) Implementation of SR Flipflop, Jk flip flop, D flip flop, T flip flop using vhdl programing
+
+SR Flip Flipflop
+----------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity SR_FF is
+    Port (
+        clk : in STD_LOGIC;
+        S   : in STD_LOGIC;
+        R   : in STD_LOGIC;
+        Q   : out STD_LOGIC
+    );
+end SR_FF;
+
+architecture Behavioral of SR_FF is
+signal q_temp : STD_LOGIC := '0';
+begin
+
+process(clk)
+begin
+    if rising_edge(clk) then
+
+        if (S='0' and R='0') then
+            q_temp <= q_temp;
+
+        elsif (S='0' and R='1') then
+            q_temp <= '0';
+
+        elsif (S='1' and R='0') then
+            q_temp <= '1';
+
+        else
+            q_temp <= 'X';    -- Invalid state
+
+        end if;
+
+    end if;
+end process;
+
+Q <= q_temp;
+
+end Behavioral;
+
+Truth Table-
+| Clock ↑ | S | R | Q(next) | Description     |
+| ------- | - | - | ------- | --------------- |
+| ↑       | 0 | 0 | Q       | No Change       |
+| ↑       | 0 | 1 | 0       | Reset           |
+| ↑       | 1 | 0 | 1       | Set             |
+| ↑       | 1 | 1 | Invalid | Forbidden State |
+
+JK Flip Flop
+-------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity JK_FF is
+    Port (
+        clk : in STD_LOGIC;
+        J   : in STD_LOGIC;
+        K   : in STD_LOGIC;
+        Q   : out STD_LOGIC
+    );
+end JK_FF;
+
+architecture Behavioral of JK_FF is
+
+signal q_temp : STD_LOGIC := '0';
+
+begin
+
+process(clk)
+begin
+
+    if rising_edge(clk) then
+
+        if (J='0' and K='0') then
+            q_temp <= q_temp;
+
+        elsif (J='0' and K='1') then
+            q_temp <= '0';
+
+        elsif (J='1' and K='0') then
+            q_temp <= '1';
+
+        else
+            q_temp <= not q_temp;
+
+        end if;
+
+    end if;
+
+end process;
+
+Q <= q_temp;
+
+end Behavioral;
+
+Truth Table-
+| Clock ↑ | J | K | Q(next) | Description |
+| ------- | - | - | ------- | ----------- |
+| ↑       | 0 | 0 | Q       | No Change   |
+| ↑       | 0 | 1 | 0       | Reset       |
+| ↑       | 1 | 0 | 1       | Set         |
+| ↑       | 1 | 1 | Q̅      | Toggle      |
+
+
+D Flip Flop
+------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity D_FF is
+    Port (
+        clk : in STD_LOGIC;
+        D   : in STD_LOGIC;
+        Q   : out STD_LOGIC
+    );
+end D_FF;
+
+architecture Behavioral of D_FF is
+
+signal q_temp : STD_LOGIC := '0';
+
+begin
+
+process(clk)
+
+begin
+
+    if rising_edge(clk) then
+        q_temp <= D;
+    end if;
+
+end process;
+
+Q <= q_temp;
+
+end Behavioral;
+
+Truth Table-
+| Clock ↑ | D | Q(next) |
+| ------- | - | ------- |
+| ↑       | 0 | 0       |
+| ↑       | 1 | 1       |
+
+
+T Flip Flop
+-----------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity T_FF is
+    Port (
+        clk : in STD_LOGIC;
+        T   : in STD_LOGIC;
+        Q   : out STD_LOGIC
+    );
+end T_FF;
+
+architecture Behavioral of T_FF is
+
+signal q_temp : STD_LOGIC := '0';
+
+begin
+
+process(clk)
+
+begin
+
+    if rising_edge(clk) then
+
+        if T='0' then
+            q_temp <= q_temp;
+        else
+            q_temp <= not q_temp;
+        end if;
+
+    end if;
+
+end process;
+
+Q <= q_temp;
+
+end Behavioral;
+
+Truth Table-
+| Clock ↑ | T | Q(next) | Description |
+| ------- | - | ------- | ----------- |
+| ↑       | 0 | Q       | No Change   |
+| ↑       | 1 | Q̅      | Toggle      |
