@@ -1,0 +1,2283 @@
+Assignment 2: On Conditional Statement [Related CO = CO2]
+====================================================================
+1. WAP in Python to check whether a number is positive or negative.
+
+num = int(input("Enter a number: "))
+
+if num > 0:
+    print("Positive Number")
+elif num < 0:
+    print("Negative Number")
+else:
+    print("Zero")
+------------------------------------------------------------
+
+2. WAP in Python to check the smallest among two numbers.
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+if a < b:
+    print("Smallest Number =", a)
+else:
+    print("Smallest Number =", b)
+------------------------------------------------------------
+
+3. WAP in Python to check whether the year is a leap year or not.
+
+year = int(input("Enter year: "))
+
+if (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0):
+    print("Leap Year")
+else:
+    print("Not a Leap Year")
+------------------------------------------------------------
+
+4. WAP in Python to check whether a triangle is acute, obtuse or right angle triangle when only two angles are given.
+
+a = int(input("Enter first angle: "))
+b = int(input("Enter second angle: "))
+
+c = 180 - (a + b)
+
+if a <= 0 or b <= 0 or c <= 0:
+    print("Invalid Triangle")
+elif a == 90 or b == 90 or c == 90:
+    print("Right Angle Triangle")
+elif a > 90 or b > 90 or c > 90:
+    print("Obtuse Triangle")
+else:
+    print("Acute Triangle")
+
+------------------------------------------------------------
+
+5. WAP in Python to find the largest among three numbers using nested if.
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+c = int(input("Enter third number: "))
+
+if a > b:
+    if a > c:
+        largest = a
+    else:
+        largest = c
+else:
+    if b > c:
+        largest = b
+    else:
+        largest = c
+
+print("Largest Number =", largest)
+====================================================================
+
+Assignment 3: On For Loop [Related CO = CO2]
+
+====================================================================
+
+1. WAP in Python to calculate the average of first n natural numbers using for loop.
+
+n = int(input("Enter the value of n: "))
+
+sum = 0
+
+for i in range(1, n + 1):
+    sum += i
+
+avg = sum / n
+
+print("Average =", avg)
+
+------------------------------------------------------------
+
+2. WAP in Python to print the multiplication table of n using for loop.
+
+n = int(input("Enter a number: "))
+
+for i in range(1, 11):
+    print(n, "x", i, "=", n * i)
+
+------------------------------------------------------------
+
+3. WAP in Python to print all the numbers from m to n and classify them as even or odd.
+
+m = int(input("Enter starting number: "))
+n = int(input("Enter ending number: "))
+
+for i in range(m, n + 1):
+
+    if i % 2 == 0:
+        print(i, "Even")
+
+    else:
+        print(i, "Odd")
+
+------------------------------------------------------------
+
+4. WAP in Python to print prime numbers within a given range.
+
+start = int(input("Enter starting number: "))
+end = int(input("Enter ending number: "))
+
+print("Prime Numbers are:")
+
+for num in range(start, end + 1):
+
+    if num > 1:
+
+        prime = True
+
+        for i in range(2, num):
+
+            if num % i == 0:
+                prime = False
+                break
+
+        if prime:
+            print(num)
+
+------------------------------------------------------------
+
+5. WAP in Python to calculate the factorial of a number using for loop.
+
+num = int(input("Enter a number: "))
+
+fact = 1
+
+for i in range(1, num + 1):
+    fact *= i
+
+print("Factorial =", fact)
+
+------------------------------------------------------------
+
+6. WAP in Python to print the sum of first N Fibonacci numbers.
+
+n = int(input("Enter value of N: "))
+
+a = 0
+b = 1
+sum = 0
+
+print("Fibonacci Series:")
+
+for i in range(n):
+
+    print(a, end=" ")
+
+    sum += a
+
+    c = a + b
+    a = b
+    b = c
+
+print("\nSum =", sum)
+
+------------------------------------------------------------
+
+7. WAP in Python to print the sum of first N Tribonacci numbers.
+
+n = int(input("Enter value of N: "))
+
+a = 0
+b = 1
+c = 1
+
+sum = 0
+
+print("Tribonacci Series:")
+
+for i in range(n):
+
+    print(a, end=" ")
+
+    sum += a
+
+    d = a + b + c
+
+    a = b
+    b = c
+    c = d
+
+print("\nSum =", sum)
+Assignment 3: On For Loop [Related CO = CO2]
+
+====================================================================
+
+8. WAP in Python to calculate the sum of series
+1/1 + 2²/2 + 3²/3 + ... + n²/n
+(Print the series also)
+
+n = int(input("Enter value of n: "))
+
+sum = 0
+
+print("Series:")
+
+for i in range(1, n + 1):
+    print(f"{i*i}/{i}", end=" ")
+
+    if i != n:
+        print("+", end=" ")
+
+    sum += (i * i) / i
+
+print("\nSum =", sum)
+
+------------------------------------------------------------
+
+9. WAP in Python to calculate the sum of series
+1 + 2 + 4 + 8 + 16 + ...
+(Print the series also)
+
+n = int(input("Enter number of terms: "))
+
+sum = 0
+term = 1
+
+print("Series:")
+
+for i in range(n):
+    print(term, end=" ")
+
+    if i != n-1:
+        print("+", end=" ")
+
+    sum += term
+    term *= 2
+
+print("\nSum =", sum)
+
+------------------------------------------------------------
+
+10. WAP in Python to calculate the sum of series
+1/1! + 2/2! + 3/3! + ...
+(Print the series also)
+
+n = int(input("Enter value of n: "))
+
+sum = 0
+fact = 1
+
+print("Series:")
+
+for i in range(1, n + 1):
+
+    fact *= i
+
+    print(f"{i}/{i}!", end=" ")
+
+    if i != n:
+        print("+", end=" ")
+
+    sum += i / fact
+
+print("\nSum =", sum)
+
+------------------------------------------------------------
+
+11. WAP in Python to calculate the sum of series
+((x-1)/x) + 1/2((x-1)/x)^2 + 1/3((x-1)/x)^3 + ...
+(Print the series also)
+
+x = int(input("Enter value of x: "))
+n = int(input("Enter number of terms: "))
+
+sum = 0
+
+print("Series:")
+
+for i in range(1, n + 1):
+
+    term = (((x - 1) / x) ** i) / i
+
+    print(term, end=" ")
+
+    if i != n:
+        print("+", end=" ")
+
+    sum += term
+
+print("\nSum =", sum)
+
+------------------------------------------------------------
+
+12. WAP in Python to calculate the sum of series
+1/x + 2/x² + 3/x³ + ...
+(Print the series also)
+
+x = int(input("Enter value of x: "))
+n = int(input("Enter number of terms: "))
+
+sum = 0
+
+print("Series:")
+
+for i in range(1, n + 1):
+
+    term = i / (x ** i)
+
+    print(term, end=" ")
+
+    if i != n:
+        print("+", end=" ")
+
+    sum += term
+
+print("\nSum =", sum)
+
+------------------------------------------------------------
+
+13. WAP in Python to calculate the value of an investment using for loop.
+
+principal = float(input("Enter initial investment: "))
+rate = float(input("Enter annual interest rate (%): "))
+years = int(input("Enter number of years: "))
+
+amount = principal
+
+for i in range(1, years + 1):
+
+    amount = amount + (amount * rate / 100)
+
+    print("After Year", i, "=", round(amount, 2))
+
+------------------------------------------------------------
+
+14. WAP in Python to generate calendar of a month given the start day and number of days.
+
+start = int(input("Enter starting day (1=Mon ... 7=Sun): "))
+days = int(input("Enter number of days: "))
+
+print("Mon Tue Wed Thu Fri Sat Sun")
+
+for i in range(1, start):
+    print("    ", end="")
+
+for d in range(1, days + 1):
+
+    print("{:>3}".format(d), end=" ")
+
+    if (d + start - 1) % 7 == 0:
+        print()
+
+print()
+====================================================================
+
+Assignment 4: On While Loop [Related CO = CO2]
+
+====================================================================
+
+1. WAP in Python to check whether a given number is an Armstrong number or not.
+
+num = int(input("Enter a number: "))
+
+temp = num
+digits = len(str(num))
+sum = 0
+
+while temp > 0:
+    rem = temp % 10
+    sum += rem ** digits
+    temp //= 10
+
+if sum == num:
+    print("Armstrong Number")
+else:
+    print("Not an Armstrong Number")
+
+------------------------------------------------------------
+
+2. WAP in Python to read the numbers until -1 is encountered. Find the average of positive, negative and total numbers entered by the user.
+
+pos_sum = pos_count = 0
+neg_sum = neg_count = 0
+total_sum = total_count = 0
+
+while True:
+
+    num = int(input("Enter number (-1 to stop): "))
+
+    if num == -1:
+        break
+
+    total_sum += num
+    total_count += 1
+
+    if num > 0:
+        pos_sum += num
+        pos_count += 1
+
+    elif num < 0:
+        neg_sum += num
+        neg_count += 1
+
+if pos_count > 0:
+    print("Average of Positive Numbers =", pos_sum / pos_count)
+
+if neg_count > 0:
+    print("Average of Negative Numbers =", neg_sum / neg_count)
+
+if total_count > 0:
+    print("Overall Average =", total_sum / total_count)
+
+------------------------------------------------------------
+
+3. WAP in Python to convert a Decimal Number into Binary Number.
+
+num = int(input("Enter a decimal number: "))
+
+binary = ""
+
+while num > 0:
+    rem = num % 2
+    binary = str(rem) + binary
+    num //= 2
+
+print("Binary Equivalent =", binary)
+
+------------------------------------------------------------
+
+4. WAP in Python to convert a Binary Number into Decimal Number.
+
+binary = input("Enter binary number: ")
+
+decimal = 0
+power = 0
+
+i = len(binary) - 1
+
+while i >= 0:
+
+    decimal += int(binary[i]) * (2 ** power)
+
+    power += 1
+    i -= 1
+
+print("Decimal Equivalent =", decimal)
+
+------------------------------------------------------------
+
+5. WAP in Python to read characters until '*' is encountered. Count uppercase, lowercase and digits.
+
+upper = 0
+lower = 0
+digit = 0
+
+while True:
+
+    ch = input("Enter a character (* to stop): ")
+
+    if ch == "*":
+        break
+
+    if ch.isupper():
+        upper += 1
+
+    elif ch.islower():
+        lower += 1
+
+    elif ch.isdigit():
+        digit += 1
+
+print("Uppercase =", upper)
+print("Lowercase =", lower)
+print("Digits =", digit)
+
+------------------------------------------------------------
+
+6. WAP in Python to calculate repetitive sum of digits until it becomes one digit.
+
+num = int(input("Enter a number: "))
+
+while num >= 10:
+
+    sum = 0
+
+    while num > 0:
+
+        sum += num % 10
+        num //= 10
+
+    num = sum
+
+print("Single Digit Sum =", num)
+
+------------------------------------------------------------
+
+7. WAP in Python to calculate GCD and LCM of two numbers.
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+x = a
+y = b
+
+while y != 0:
+    x, y = y, x % y
+
+gcd = x
+
+lcm = (a * b) // gcd
+
+print("GCD =", gcd)
+print("LCM =", lcm)
+
+------------------------------------------------------------
+
+8. WAP in Python to print the reverse of a number and find the difference between original and reverse number.
+
+num = int(input("Enter a number: "))
+
+temp = num
+rev = 0
+
+while temp > 0:
+
+    rem = temp % 10
+
+    rev = rev * 10 + rem
+
+    temp //= 10
+
+print("Reverse Number =", rev)
+
+print("Difference =", abs(num - rev))
+====================================================================
+
+Assignment 5: On List [Related CO = CO3]
+
+====================================================================
+
+1. Write a Python program to sum all the items in a list.
+
+n = int(input("Enter number of elements: "))
+
+lst = []
+
+for i in range(n):
+    num = int(input("Enter element: "))
+    lst.append(num)
+
+total = sum(lst)
+
+print("List =", lst)
+print("Sum of all items =", total)
+
+------------------------------------------------------------
+
+2. Write a Python program to get the largest number from a list.
+
+n = int(input("Enter number of elements: "))
+
+lst = []
+
+for i in range(n):
+    num = int(input("Enter element: "))
+    lst.append(num)
+
+largest = lst[0]
+
+for i in lst:
+    if i > largest:
+        largest = i
+
+print("List =", lst)
+print("Largest number =", largest)
+
+------------------------------------------------------------
+
+3. Write a Python program to print the numbers of a specified list after removing even numbers from it.
+
+n = int(input("Enter number of elements: "))
+
+lst = []
+
+for i in range(n):
+    num = int(input("Enter element: "))
+    lst.append(num)
+
+new_list = []
+
+for i in lst:
+    if i % 2 != 0:
+        new_list.append(i)
+
+print("Original List =", lst)
+print("List after removing even numbers =", new_list)
+
+------------------------------------------------------------
+
+4. Write a Python program to generate all permutations of a list in Python.
+
+from itertools import permutations
+
+n = int(input("Enter number of elements: "))
+
+lst = []
+
+for i in range(n):
+    item = input("Enter element: ")
+    lst.append(item)
+
+perm = permutations(lst)
+
+print("Permutations are:")
+
+for p in perm:
+    print(p)
+
+------------------------------------------------------------
+
+5. Write a Python program to find the index of an item in a specified list.
+
+n = int(input("Enter number of elements: "))
+
+lst = []
+
+for i in range(n):
+    item = input("Enter element: ")
+    lst.append(item)
+
+search = input("Enter item to search: ")
+
+if search in lst:
+    print("Index =", lst.index(search))
+else:
+    print("Item not found")
+
+------------------------------------------------------------
+
+6. Write a Python program to find the second largest number in a list.
+
+n = int(input("Enter number of elements: "))
+
+lst = []
+
+for i in range(n):
+    num = int(input("Enter element: "))
+    lst.append(num)
+
+largest = second_largest = -999999
+
+for num in lst:
+
+    if num > largest:
+        second_largest = largest
+        largest = num
+
+    elif num > second_largest and num != largest:
+        second_largest = num
+
+print("List =", lst)
+print("Second Largest Number =", second_largest)
+====================================================================
+
+Assignment 6: On Tuple [Related CO = CO3]
+
+====================================================================
+
+1. Write a Python program to compute element-wise sum of given tuples.
+
+t1 = tuple(map(int, input("Enter tuple1 elements: ").split()))
+t2 = tuple(map(int, input("Enter tuple2 elements: ").split()))
+
+result = ()
+
+for i in range(len(t1)):
+    result += (t1[i] + t2[i],)
+
+print("Result =", result)
+
+------------------------------------------------------------
+
+2. Write a Python program that has a nested list to store toppers' details. Edit the details and reprint them.
+
+students = [
+    ["Amit", 90],
+    ["Riya", 85],
+    ["John", 88]
+]
+
+print("Original List =", students)
+
+students[1][1] = 95
+
+print("Updated List =", students)
+
+------------------------------------------------------------
+
+3. Write a Python program to find the repeated items of a tuple.
+
+t = tuple(map(int, input("Enter tuple elements: ").split()))
+
+seen = ()
+repeated = ()
+
+for i in t:
+
+    if i in seen:
+        if i not in repeated:
+            repeated += (i,)
+
+    else:
+        seen += (i,)
+
+print("Repeated Items =", repeated)
+
+------------------------------------------------------------
+
+4. Write a Python program to Sort by Frequency of second element in Tuple List.
+
+lst = [(1,2),(3,2),(4,3),(5,3),(6,3)]
+
+freq = {}
+
+for x, y in lst:
+    freq[y] = freq.get(y,0) + 1
+
+lst.sort(key=lambda x: freq[x[1]])
+
+print(lst)
+
+------------------------------------------------------------
+
+5. Write a Python program to Sort lists in tuple.
+
+t = ([3,1,2],[9,5,6],[8,7,4])
+
+result = ()
+
+for i in t:
+    result += (sorted(i),)
+
+print(result)
+
+------------------------------------------------------------
+
+6. Write a Python program to Order Tuples using external List.
+
+data = [('A',3),('B',1),('C',2)]
+
+order = [1,2,3]
+
+result = sorted(data,key=lambda x:order.index(x[1]))
+
+print(result)
+
+------------------------------------------------------------
+
+7. Write a Python program to Filter Tuples by Kth element from List.
+
+lst = [(1,5),(2,10),(3,5),(4,20)]
+
+k = int(input("Enter K value: "))
+
+result = []
+
+for i in lst:
+
+    if i[1] == k:
+        result.append(i)
+
+print(result)
+
+------------------------------------------------------------
+
+8. Write a Python program to find a tuple from a nested tuple with respect to key element search.
+
+data = ((1,"A"),(2,"B"),(3,"C"))
+
+key = int(input("Enter key: "))
+
+found = False
+
+for t in data:
+
+    if t[0] == key:
+        print("Tuple Found =", t)
+        found = True
+        break
+
+if not found:
+    print("Tuple Not Found")
+
+------------------------------------------------------------
+
+9. Write a Python program to Sort Tuples by their Maximum element.
+
+t = ((1,5,3),(7,2,4),(6,9,8))
+
+result = sorted(t,key=max)
+
+print(result)
+
+------------------------------------------------------------
+
+10. Write a Python program to Remove nested records from tuple.
+
+t = ((1,2),(3,4),(1,2),(5,6))
+
+result = tuple(set(t))
+
+print(result)
+
+------------------------------------------------------------
+
+11. Write a Python program to Sort by Frequency of second element in Tuple List.
+
+lst = [(1,2),(3,2),(4,3),(5,3),(6,3)]
+
+freq = {}
+
+for x, y in lst:
+    freq[y] = freq.get(y,0)+1
+
+lst.sort(key=lambda x:freq[x[1]])
+
+print(lst)
+====================================================================
+
+Assignment 7: On Dictionary [Related CO = CO3]
+
+====================================================================
+
+1. Write a Python script to print a dictionary where the keys are numbers between 1 and n (both included) and the values are square of keys.
+
+n = int(input("Enter value of n: "))
+
+d = {}
+
+for i in range(1, n + 1):
+    d[i] = i * i
+
+print("Dictionary =", d)
+
+------------------------------------------------------------
+
+2. Write a Python program to sum all the items in a dictionary.
+
+n = int(input("Enter number of items: "))
+
+d = {}
+
+for i in range(n):
+    key = input("Enter key: ")
+    value = int(input("Enter value: "))
+    d[key] = value
+
+sum = 0
+
+for value in d.values():
+    sum += value
+
+print("Dictionary =", d)
+print("Sum =", sum)
+
+------------------------------------------------------------
+
+3. Write a Python program to count number of items in a dictionary value that is a list.
+
+d = {
+    "A":[1,2,3],
+    "B":[4,5],
+    "C":[6,7,8,9]
+}
+
+count = 0
+
+for value in d.values():
+    count += len(value)
+
+print("Dictionary =", d)
+print("Total List Items =", count)
+
+------------------------------------------------------------
+
+4. Write a Python program to remove duplicate values from dictionary.
+
+d = {
+    'A':10,
+    'B':20,
+    'C':10,
+    'D':30,
+    'E':20
+}
+
+new_dict = {}
+
+for key,value in d.items():
+
+    if value not in new_dict.values():
+        new_dict[key] = value
+
+print("Original Dictionary =", d)
+print("Dictionary after removing duplicates =", new_dict)
+
+------------------------------------------------------------
+
+5. Write a Python program to Convert two lists into a dictionary.
+
+keys = input("Enter keys separated by space: ").split()
+
+values = list(map(int,input("Enter values separated by space: ").split()))
+
+d = {}
+
+for i in range(len(keys)):
+    d[keys[i]] = values[i]
+
+print("Dictionary =", d)
+
+------------------------------------------------------------
+
+6. Write a Python program to Replace words from Dictionary.
+
+sentence = input("Enter a sentence: ")
+
+replace = {
+    "good":"excellent",
+    "bad":"poor",
+    "fast":"quick"
+}
+
+words = sentence.split()
+
+for i in range(len(words)):
+
+    if words[i] in replace:
+        words[i] = replace[words[i]]
+
+print("Updated Sentence:")
+print(" ".join(words))
+
+------------------------------------------------------------
+
+7. Write a Python program to get the maximum and minimum value of dictionary.
+
+n = int(input("Enter number of items: "))
+
+d = {}
+
+for i in range(n):
+    key = input("Enter key: ")
+    value = int(input("Enter value: "))
+    d[key] = value
+
+maximum = max(d.values())
+minimum = min(d.values())
+
+print("Dictionary =", d)
+print("Maximum Value =", maximum)
+print("Minimum Value =", minimum)
+
+------------------------------------------------------------
+
+8. Given a list of elements, perform grouping of similar elements as different key-value lists in a dictionary.
+
+test_list = list(map(int,input("Enter elements separated by space: ").split()))
+
+result = {}
+
+for i in test_list:
+
+    if i not in result:
+        result[i] = []
+
+    result[i].append(i)
+
+print("Grouped Dictionary =")
+print(result)
+====================================================================
+
+Assignment 8: On String [Related CO = CO1]
+
+====================================================================
+
+1. Write a Python program to create a string made of the middle three characters.
+
+str1 = input("Enter a string: ")
+
+mid = len(str1) // 2
+
+print("Middle Three Characters =", str1[mid-1:mid+2])
+
+------------------------------------------------------------
+
+2. Write a Python program to create a new string as abbreviation of name taken as input.
+
+name = input("Enter Full Name: ")
+
+words = name.split()
+
+abbr = ""
+
+for i in range(len(words)-1):
+    abbr += words[i][0].upper() + "."
+
+abbr += words[-1]
+
+print("Abbreviation =", abbr)
+
+------------------------------------------------------------
+
+3. Write a Python program to arrange string characters such that lowercase letters come first.
+
+s = input("Enter a string: ")
+
+lower = ""
+upper = ""
+
+for ch in s:
+
+    if ch.islower():
+        lower += ch
+    else:
+        upper += ch
+
+print("Result =", lower + upper)
+
+------------------------------------------------------------
+
+4. Write a Python program to count all letters, digits and special symbols.
+
+s = input("Enter a string: ")
+
+letters = 0
+digits = 0
+symbols = 0
+
+for ch in s:
+
+    if ch.isalpha():
+        letters += 1
+
+    elif ch.isdigit():
+        digits += 1
+
+    else:
+        symbols += 1
+
+print("Characters =", letters)
+print("Digits =", digits)
+print("Symbols =", symbols)
+
+------------------------------------------------------------
+
+5. Write a program to create a new string by combining first character of first string and last character of second string alternately.
+
+s1 = input("Enter first string: ")
+s2 = input("Enter second string: ")
+
+result = ""
+
+i = 0
+j = len(s2)-1
+
+while i < len(s1) and j >= 0:
+
+    result += s1[i]
+    result += s2[j]
+
+    i += 1
+    j -= 1
+
+if i < len(s1):
+    result += s1[i:]
+
+if j >= 0:
+    result += s2[:j+1]
+
+print("New String =", result)
+
+------------------------------------------------------------
+
+6. Write a Python program to find all occurrences of a substring by ignoring case.
+
+string = input("Enter main string: ")
+sub = input("Enter substring: ")
+
+count = string.lower().count(sub.lower())
+
+print("Occurrence =", count)
+
+------------------------------------------------------------
+
+7. Write a Python program to count occurrences of all characters within a string.
+
+s = input("Enter a string: ")
+
+d = {}
+
+for ch in s:
+
+    if ch in d:
+        d[ch] += 1
+    else:
+        d[ch] = 1
+
+print("Character Count:")
+
+for key,value in d.items():
+    print(key,":",value)
+
+------------------------------------------------------------
+
+8. Write a Python program to reverse a given string.
+
+s = input("Enter a string: ")
+
+rev = ""
+
+for ch in s:
+    rev = ch + rev
+
+print("Reversed String =", rev)
+
+------------------------------------------------------------
+
+9. Write a Python program to split a string on hyphens.
+
+s = input("Enter hyphen separated string: ")
+
+words = s.split("-")
+
+for word in words:
+    print(word)
+
+------------------------------------------------------------
+
+10. Python Counter and Dictionary Intersection Example.
+
+from collections import Counter
+
+s1 = input("Enter First String: ")
+s2 = input("Enter Second String: ")
+
+c1 = Counter(s1.lower())
+c2 = Counter(s2.lower())
+
+possible = True
+
+for ch in c1:
+
+    if c1[ch] > c2.get(ch,0):
+        possible = False
+        break
+
+if possible:
+    print("Possible")
+else:
+    print("Not Possible")
+
+------------------------------------------------------------
+
+11. Write a Python program to print an entered number in words.
+
+num = int(input("Enter Number (0-9999): "))
+
+ones = ["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten",
+         "Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen",
+         "Eighteen","Nineteen"]
+
+tens = ["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"]
+
+if num == 0:
+    print("Zero")
+
+else:
+
+    if num >= 1000:
+        print(ones[num//1000],"Thousand",end=" ")
+        num %= 1000
+
+    if num >= 100:
+        print(ones[num//100],"Hundred",end=" ")
+        num %= 100
+
+    if num >= 20:
+        print(tens[num//10],end=" ")
+        num %= 10
+
+    elif num > 0:
+        print(ones[num],end=" ")
+        num = 0
+
+    if num > 0:
+        print(ones[num])
+====================================================================
+
+Assignment 9: On Function [Related CO = CO3]
+
+====================================================================
+
+1. Write a Python program to create a function with variable length of arguments.
+
+def add(*num):
+
+    total = 0
+
+    for i in num:
+        total += i
+
+    print("Sum =", total)
+
+add(10,20)
+add(10,20,30,40)
+add(5,10,15,20,25)
+
+------------------------------------------------------------
+
+2. Write a Python program to Return multiple values from a function.
+
+def calculate(a,b):
+
+    return a+b,a-b,a*b,a/b
+
+x = int(input("Enter first number: "))
+y = int(input("Enter second number: "))
+
+add,sub,mul,div = calculate(x,y)
+
+print("Addition =",add)
+print("Subtraction =",sub)
+print("Multiplication =",mul)
+print("Division =",div)
+
+------------------------------------------------------------
+
+3. Write a Python program to create a function with a default argument.
+
+def student(name,course="B.Tech"):
+
+    print("Name =",name)
+    print("Course =",course)
+
+student("Rahul")
+student("Amit","BCA")
+
+------------------------------------------------------------
+
+4. Write a Python program to create a recursive function.
+
+def print_num(n):
+
+    if n==0:
+        return
+
+    print(n)
+
+    print_num(n-1)
+
+num=int(input("Enter a number: "))
+
+print_num(num)
+
+------------------------------------------------------------
+
+5. Write a Python program to assign a different name to function and call it through the new name.
+
+def display():
+
+    print("Hello Python")
+
+show = display
+
+show()
+
+------------------------------------------------------------
+
+6. Write a Python program to reverse a string using recursive function.
+
+def reverse(s):
+
+    if len(s)==0:
+        return s
+
+    return reverse(s[1:])+s[0]
+
+string=input("Enter String: ")
+
+print("Reversed String =",reverse(string))
+
+------------------------------------------------------------
+
+7. Write a Python function to calculate the factorial of a number.
+
+def factorial(n):
+
+    fact=1
+
+    for i in range(1,n+1):
+        fact*=i
+
+    return fact
+
+num=int(input("Enter Number: "))
+
+print("Factorial =",factorial(num))
+
+------------------------------------------------------------
+
+8. Write a Python function that accepts a string and counts the number of upper and lower case letters.
+
+def count_case(s):
+
+    upper=0
+    lower=0
+
+    for ch in s:
+
+        if ch.isupper():
+            upper+=1
+
+        elif ch.islower():
+            lower+=1
+
+    print("Upper Case =",upper)
+    print("Lower Case =",lower)
+
+string=input("Enter String: ")
+
+count_case(string)
+
+------------------------------------------------------------
+
+9. Write a Python function to create and print a list where the values are the squares of numbers between 1 and 30.
+
+def square_list():
+
+    lst=[]
+
+    for i in range(1,31):
+        lst.append(i*i)
+
+    return lst
+
+print(square_list())
+
+------------------------------------------------------------
+
+10. Write a Python program that accepts a hyphen-separated sequence of words as input and prints the words in a hyphen-separated sequence after sorting them alphabetically.
+
+string=input("Enter Hyphen Separated Words: ")
+
+words=string.split("-")
+
+words.sort()
+
+print("-".join(words))
+====================================================================
+
+Assignment 10: On Set [Related CO = CO3]
+
+====================================================================
+
+1. WAP in Python to create a set and add elements using a user-defined function. Also, access the elements.
+
+def add_elements(s, n):
+
+    for i in range(n):
+        element = int(input("Enter element: "))
+        s.add(element)
+
+s = set()
+
+n = int(input("Enter number of elements: "))
+
+add_elements(s, n)
+
+print("Set =", s)
+
+print("Elements of the set:")
+
+for i in s:
+    print(i)
+
+------------------------------------------------------------
+
+2. WAP in Python to demonstrate the use of a set to remove duplicate elements from a list.
+
+n = int(input("Enter number of elements: "))
+
+lst = []
+
+for i in range(n):
+    num = int(input("Enter element: "))
+    lst.append(num)
+
+print("Original List =", lst)
+
+unique = set(lst)
+
+print("List after removing duplicates =", unique)
+
+------------------------------------------------------------
+
+3. WAP in Python to create a frozenset from a given list of elements.
+
+n = int(input("Enter number of elements: "))
+
+lst = []
+
+for i in range(n):
+    item = input("Enter element: ")
+    lst.append(item)
+
+fs = frozenset(lst)
+
+print("Frozen Set =", fs)
+
+------------------------------------------------------------
+
+4. WAP in Python to create a set of prime numbers up to a specified number.
+
+n = int(input("Enter the limit: "))
+
+prime_set = set()
+
+for num in range(2, n + 1):
+
+    prime = True
+
+    for i in range(2, num):
+
+        if num % i == 0:
+            prime = False
+            break
+
+    if prime:
+        prime_set.add(num)
+
+print("Prime Numbers =", prime_set)
+
+------------------------------------------------------------
+
+5. WAP in Python to find the union and intersection of two sets.
+
+set1 = set(map(int, input("Enter first set: ").split()))
+
+set2 = set(map(int, input("Enter second set: ").split()))
+
+print("Union =", set1 | set2)
+
+print("Intersection =", set1 & set2)
+
+------------------------------------------------------------
+
+6. WAP in Python to check if a set is a subset or superset of another set using user-defined functions.
+
+def check_subset(a, b):
+    return a.issubset(b)
+
+def check_superset(a, b):
+    return a.issuperset(b)
+
+set1 = set(map(int, input("Enter first set: ").split()))
+
+set2 = set(map(int, input("Enter second set: ").split()))
+
+print("Subset =", check_subset(set1, set2))
+
+print("Superset =", check_superset(set1, set2))
+
+------------------------------------------------------------
+
+7. WAP in Python to join multiple sets into one set using the update() method.
+
+set1 = {1,2}
+set2 = {3,4}
+set3 = {5,6}
+
+set1.update(set2)
+set1.update(set3)
+
+print("Joined Set =", set1)
+
+------------------------------------------------------------
+
+8. WAP in Python to slice elements from a frozenset by first converting it to a list.
+
+fs = frozenset([10,20,30,40,50,60])
+
+lst = list(fs)
+
+print("Frozen Set =", fs)
+
+print("Sliced Elements =", lst[1:5])
+
+------------------------------------------------------------
+
+9. WAP in Python to find unique elements across multiple sets.
+
+set1 = set(map(int,input("Enter first set: ").split()))
+
+set2 = set(map(int,input("Enter second set: ").split()))
+
+set3 = set(map(int,input("Enter third set: ").split()))
+
+unique = set1 ^ set2 ^ set3
+
+print("Unique Elements =", unique)
+====================================================================
+
+Assignment 11: On Module [Related CO = CO3]
+
+====================================================================
+
+1. WAP in Python to find the square root of a number using math module.
+
+import math
+
+num = float(input("Enter a number: "))
+
+print("Square Root =", math.sqrt(num))
+
+------------------------------------------------------------
+
+2. WAP in Python to use log() and pi functions through math module.
+
+import math
+
+num = float(input("Enter a number: "))
+
+print("Value of PI =", math.pi)
+
+print("Natural Log =", math.log(num))
+
+------------------------------------------------------------
+
+3. WAP in Python to use different objects and functions of sys module.
+
+import sys
+
+print("Python Version =", sys.version)
+
+print("Platform =", sys.platform)
+
+print("Maximum Integer =", sys.maxsize)
+
+print("Command Line Arguments =", sys.argv)
+
+------------------------------------------------------------
+
+4. WAP in Python to use different objects and functions of math module.
+
+import math
+
+num = float(input("Enter a number: "))
+
+print("Square Root =", math.sqrt(num))
+
+print("Factorial =", math.factorial(int(num)))
+
+print("Power =", math.pow(num,2))
+
+print("Ceiling =", math.ceil(num))
+
+print("Floor =", math.floor(num))
+
+print("Value of PI =", math.pi)
+
+print("Value of e =", math.e)
+
+------------------------------------------------------------
+
+5. WAP in Python to use different objects and functions of time module.
+
+import time
+
+print("Current Time =", time.time())
+
+print("Local Time =", time.ctime())
+
+print("Current Date & Time =", time.asctime())
+
+print("Sleeping for 3 seconds...")
+
+time.sleep(3)
+
+print("Program Resumed")
+
+------------------------------------------------------------
+
+6. WAP in Python to use different objects and functions of os module.
+
+import os
+
+print("Current Working Directory =")
+
+print(os.getcwd())
+
+print("List of Files =")
+
+print(os.listdir())
+
+print("Operating System Name =", os.name)
+
+------------------------------------------------------------
+
+7. WAP in Python to use different objects and functions of random module.
+
+import random
+
+print("Random Integer =", random.randint(1,100))
+
+print("Random Float =", random.random())
+
+list1 = [10,20,30,40,50]
+
+print("Random Choice =", random.choice(list1))
+
+random.shuffle(list1)
+
+print("Shuffled List =", list1)
+
+------------------------------------------------------------
+
+8. WAP in Python to create own module.
+
+Step 1 : Create a file named mymodule.py
+
+def add(a,b):
+    return a+b
+
+def sub(a,b):
+    return a-b
+
+------------------------------------------------------------
+
+Step 2 : Main Program
+
+import mymodule
+
+a = int(input("Enter First Number: "))
+b = int(input("Enter Second Number: "))
+
+print("Addition =", mymodule.add(a,b))
+
+print("Subtraction =", mymodule.sub(a,b))
+====================================================================
+
+Assignment 12: On OOP Concept - Part 1 [Related CO = CO5]
+
+====================================================================
+
+1. Write a Python program to create a Calculator class. Include methods for basic arithmetic operations.
+
+class Calculator:
+
+    def add(self,a,b):
+        return a+b
+
+    def sub(self,a,b):
+        return a-b
+
+    def mul(self,a,b):
+        return a*b
+
+    def div(self,a,b):
+        return a/b
+
+c = Calculator()
+
+a = int(input("Enter First Number: "))
+b = int(input("Enter Second Number: "))
+
+print("Addition =", c.add(a,b))
+print("Subtraction =", c.sub(a,b))
+print("Multiplication =", c.mul(a,b))
+print("Division =", c.div(a,b))
+
+------------------------------------------------------------
+
+2. Write a Python program to create a Person class. Include attributes like name, country and date of birth. Implement a method to determine the person's age.
+
+from datetime import date
+
+class Person:
+
+    def __init__(self,name,country,birth_year):
+        self.name = name
+        self.country = country
+        self.birth_year = birth_year
+
+    def age(self):
+        return date.today().year - self.birth_year
+
+name = input("Enter Name: ")
+country = input("Enter Country: ")
+year = int(input("Enter Birth Year: "))
+
+p = Person(name,country,year)
+
+print("Name =", p.name)
+print("Country =", p.country)
+print("Age =", p.age())
+
+------------------------------------------------------------
+
+3. Write a Python program to create a class representing a Bank. Include methods for managing customer accounts and transactions.
+
+class Bank:
+
+    def __init__(self):
+        self.balance = 0
+
+    def deposit(self,amount):
+        self.balance += amount
+        print("Amount Deposited Successfully")
+
+    def withdraw(self,amount):
+
+        if amount <= self.balance:
+            self.balance -= amount
+            print("Amount Withdrawn Successfully")
+        else:
+            print("Insufficient Balance")
+
+    def display(self):
+        print("Current Balance =", self.balance)
+
+b = Bank()
+
+b.deposit(5000)
+b.withdraw(2000)
+b.display()
+
+------------------------------------------------------------
+
+4. Write a Python program that overloads the function area() to calculate area of circle, square and rectangle.
+
+class Area:
+
+    def area(self,a,b=None):
+
+        if b==None:
+            print("Area of Square =", a*a)
+
+        elif isinstance(b,float):
+            print("Area of Circle =", 3.14*a*a)
+
+        else:
+            print("Area of Rectangle =", a*b)
+
+obj = Area()
+
+obj.area(5)
+obj.area(5,10)
+obj.area(7,0.0)
+
+------------------------------------------------------------
+
+5. Write a Python program that overloads any two operators.
+
+class Number:
+
+    def __init__(self,value):
+        self.value = value
+
+    def __add__(self,other):
+        return self.value + other.value
+
+    def __sub__(self,other):
+        return self.value - other.value
+
+a = Number(30)
+b = Number(20)
+
+print("Addition =", a+b)
+print("Subtraction =", a-b)
+
+------------------------------------------------------------
+
+6. Write a Python program to create a Time class and show '+' and '-' operator overloading.
+
+class Time:
+
+    def __init__(self,h,m):
+        self.minutes = h*60 + m
+
+    def __add__(self,other):
+
+        total = self.minutes + other.minutes
+
+        h = total//60
+        m = total%60
+
+        return str(h)+" Hour "+str(m)+" Minute"
+
+    def __sub__(self,other):
+
+        total = abs(self.minutes-other.minutes)
+
+        h = total//60
+        m = total%60
+
+        return str(h)+" Hour "+str(m)+" Minute"
+
+t1 = Time(5,30)
+t2 = Time(2,45)
+
+print("Addition =", t1+t2)
+
+print("Subtraction =", t1-t2)
+
+====================================================================
+
+Assignment 13: On OOP Concept - Part 2 [Related CO = CO5]
+
+====================================================================
+
+1. Write a Python program to create a class representing a Shopping Cart. Include methods for adding and removing items, and calculating the total price.
+
+class ShoppingCart:
+
+    def __init__(self):
+        self.cart = {}
+
+    def addItem(self,item,price):
+
+        self.cart[item] = price
+
+        print(item,"Added Successfully")
+
+    def removeItem(self,item):
+
+        if item in self.cart:
+
+            del self.cart[item]
+
+            print(item,"Removed Successfully")
+
+        else:
+
+            print("Item Not Found")
+
+    def totalPrice(self):
+
+        total = sum(self.cart.values())
+
+        print("Total Price =",total)
+
+cart = ShoppingCart()
+
+cart.addItem("Laptop",50000)
+
+cart.addItem("Mouse",800)
+
+cart.addItem("Keyboard",1500)
+
+cart.totalPrice()
+
+cart.removeItem("Mouse")
+
+cart.totalPrice()
+
+------------------------------------------------------------
+
+2. Write a Python program to create a class called Employee with methods work() and getSalary(). Create a subclass called HRManager that overrides work() and adds a new method called addEmployee().
+
+class Employee:
+
+    def work(self):
+
+        print("Employee is Working")
+
+    def getSalary(self):
+
+        print("Salary = 50000")
+
+class HRManager(Employee):
+
+    def work(self):
+
+        print("HR Manager is Managing Employees")
+
+    def addEmployee(self):
+
+        print("New Employee Added Successfully")
+
+obj = HRManager()
+
+obj.work()
+
+obj.getSalary()
+
+obj.addEmployee()
+
+------------------------------------------------------------
+
+3. Write a Python program to create a class called Shape with methods getPerimeter() and getArea(). Create a subclass called Circle that overrides the methods.
+
+class Shape:
+
+    def getPerimeter(self):
+
+        pass
+
+    def getArea(self):
+
+        pass
+
+class Circle(Shape):
+
+    def __init__(self,r):
+
+        self.r = r
+
+    def getPerimeter(self):
+
+        print("Perimeter =",2*3.14*self.r)
+
+    def getArea(self):
+
+        print("Area =",3.14*self.r*self.r)
+
+r = float(input("Enter Radius: "))
+
+c = Circle(r)
+
+c.getPerimeter()
+
+c.getArea()
+
+------------------------------------------------------------
+
+4. Write a Python program to handle a ZeroDivisionError exception when dividing a number by zero.
+
+try:
+
+    a = int(input("Enter First Number: "))
+
+    b = int(input("Enter Second Number: "))
+
+    print("Division =",a/b)
+
+except ZeroDivisionError:
+
+    print("Error : Division by Zero is not allowed.")
+
+------------------------------------------------------------
+
+5. Write a Python program that prompts the user to input an integer and raises a ValueError exception if the input is not a valid integer.
+
+try:
+
+    num = int(input("Enter an Integer: "))
+
+    print("You Entered :",num)
+
+except ValueError:
+
+    print("Invalid Integer Entered.")
+
+------------------------------------------------------------
+
+6. Write a Python program that executes division and handles an ArithmeticError exception if there is an arithmetic error.
+
+try:
+
+    a = int(input("Enter First Number: "))
+
+    b = int(input("Enter Second Number: "))
+
+    result = a/b
+
+    print("Division =",result)
+
+except ArithmeticError:
+
+    print("Arithmetic Error Occurred.")
+
+
+====================================================================
+
+Assignment 14: Text File & Data File (.dat) [Related CO = CO4]
+
+====================================================================
+
+1. Write a function in Python to mount your drive for further access.
+
+from google.colab import drive
+
+def mount_drive():
+    drive.mount('/content/drive')
+
+mount_drive()
+
+------------------------------------------------------------
+
+2. Write a function in Python to count the number of lines in "Data.txt" beginning with an uppercase character.
+
+def count_uppercase_lines():
+
+    file = open("Data.txt","r")
+
+    count = 0
+
+    for line in file:
+
+        if line.strip() != "" and line[0].isupper():
+            count += 1
+
+    file.close()
+
+    print("Lines starting with uppercase =",count)
+
+count_uppercase_lines()
+
+------------------------------------------------------------
+
+3. Write a function in Python to read lines from file "Data.txt" and count how many times a particular word exists in the file.
+
+def word_count():
+
+    word = input("Enter word to search: ")
+
+    file = open("Data.txt","r")
+
+    count = 0
+
+    for line in file:
+
+        words = line.split()
+
+        for w in words:
+
+            if w.lower() == word.lower():
+                count += 1
+
+    file.close()
+
+    print("Occurrences =",count)
+
+word_count()
+
+------------------------------------------------------------
+
+4. Write a function in Python to read lines from file "Data.txt" and display all those words which have two characters.
+
+def two_character_words():
+
+    file = open("Data.txt","r")
+
+    for line in file:
+
+        words = line.split()
+
+        for word in words:
+
+            if len(word)==2:
+                print(word)
+
+    file.close()
+
+two_character_words()
+
+------------------------------------------------------------
+
+5. Write a function COUNT() in Python to read contents from file "REPEATED.TXT" and count the occurrence of a particular word.
+
+def COUNT():
+
+    word = input("Enter word: ")
+
+    file = open("REPEATED.TXT","r")
+
+    count = 0
+
+    for line in file:
+
+        words = line.split()
+
+        for w in words:
+
+            if w.lower()==word.lower():
+                count += 1
+
+    file.close()
+
+    print("Occurrence =",count)
+
+COUNT()
+
+------------------------------------------------------------
+
+6. Write a function dispS() in Python to read from text file "Data.txt" and display those lines which start with 'S'.
+
+def dispS():
+
+    file = open("Data.txt","r")
+
+    for line in file:
+
+        if line.startswith("S"):
+            print(line,end="")
+
+    file.close()
+
+dispS()
+
+------------------------------------------------------------
+
+7. Open a file named "testfile.dat" in write mode ("w") and assign the file object to fobject.
+
+fobject = open("testfile.dat","w")
+
+fobject.write("Hello Python\n")
+
+fobject.write("Welcome to Data File")
+
+fobject.close()
+
+print("Data Written Successfully")
+
+------------------------------------------------------------
+
+8. Append some data in the existing file.
+
+file = open("testfile.dat","a")
+
+file.write("\nThis is appended data.")
+
+file.close()
+
+print("Data Appended Successfully")
+
+------------------------------------------------------------
+
+9. Read the content of the file based on condition.
+
+file = open("testfile.dat","r")
+
+for line in file:
+
+    if "Python" in line:
+
+        print(line,end="")
+
+file.close()
+
+------------------------------------------------------------
+
+10. Use Pandas DataFrame to store the data from the file and print it in tabular format.
+
+import pandas as pd
+
+file = open("testfile.dat","r")
+
+lines = file.readlines()
+
+file.close()
+
+df = pd.DataFrame(lines,columns=["Content"])
+
+print(df)
+
+====================================================================
+
+Assignment 15: CSV File [Related CO = CO4]
+
+====================================================================
+
+1. Open a file named "records.csv" in write mode ("w") and write data into it.
+
+import csv
+
+file = open("records.csv","w",newline="")
+
+writer = csv.writer(file)
+
+writer.writerow(["Roll","Name","Marks"])
+
+writer.writerow([101,"Rahul",85])
+
+writer.writerow([102,"Amit",90])
+
+writer.writerow([103,"Riya",88])
+
+file.close()
+
+print("Data Written Successfully.")
+
+------------------------------------------------------------
+
+2. Open the file in read mode and read the data.
+
+import csv
+
+file = open("records.csv","r")
+
+reader = csv.reader(file)
+
+print("CSV File Contents:")
+
+for row in reader:
+
+    print(row)
+
+file.close()
+
+------------------------------------------------------------
+
+3. Select the data from the above file based on condition.
+
+import csv
+
+file = open("records.csv","r")
+
+reader = csv.reader(file)
+
+next(reader)
+
+print("Students having Marks greater than 85")
+
+for row in reader:
+
+    if int(row[2]) > 85:
+
+        print(row)
+
+file.close()
+
+------------------------------------------------------------
+
+4. Use Pandas DataFrame to store the data from the file and print it in tabular format.
+
+import pandas as pd
+
+df = pd.read_csv("records.csv")
+
+print(df)
+
+------------------------------------------------------------
+
+5. Delete & Update the data from above CSV file using Pandas DataFrame.
+
+import pandas as pd
+
+df = pd.read_csv("records.csv")
+
+print("Original Data")
+
+print(df)
+
+# Update Marks of Roll 102
+
+df.loc[df["Roll"] == 102, "Marks"] = 95
+
+# Delete Record of Roll 101
+
+df = df[df["Roll"] != 101]
+
+print("\nUpdated Data")
+
+print(df)
+
+df.to_csv("records.csv", index=False)
+
+print("\nCSV File Updated Successfully.")
+
+====================================================================
+
